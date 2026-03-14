@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter create:*)",
+      "Bash(flutter pub get:*)",
+      "Bash(flutter run:*)",
+      "Bash(dir:*)",
+      "Bash(timeout 15 cmd:*)",
+      "Bash(timeout 20 cmd /c \"ping localhost -n 20 > nul && type C:\\\\Users\\\\Hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--The-Helpex-ODOO\\\\tasks\\\\b93b5a3.output\":*)",
+      "Bash(timeout:*)",
+      "Bash(powershell -Command \"Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $bitmap = New-Object System.Drawing.Bitmap $screen.Width, $screen.Height; $graphics = [System.Drawing.Graphics]::FromImage\\($bitmap\\); $graphics.CopyFromScreen\\($screen.Location, [System.Drawing.Point]::Empty, $screen.Size\\); $bitmap.Save\\(''D:\\\\The-Helpex\\\\ODOO\\\\odoo_mobile_launcher\\\\screenshot.png''\\); Write-Host ''Screenshot saved''\")",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"D:\\\\The-Helpex\\\\ODOO\\\\odoo_mobile_launcher\\\\take_screenshot.ps1\")",
+      "Bash(flutter devices:*)",
+      "Bash(flutter doctor:*)",
+      "Bash(flutter emulators:*)",
+      "Bash(adb devices:*)",
+      "Bash(flutter build:*)",
+      "Bash(flutter clean:*)",
+      "Bash(adb install:*)",
+      "Bash(adb shell am start:*)",
+      "Bash(pip:*)",
+      "Bash(python:*)",
+      "Bash(cp:*)",
+      "Bash(git add:*)",
+      "Bash(git init:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(git credential-manager:*)",
+      "Bash(cmdkey /list | grep github)"
+    ]
+  }
+}
