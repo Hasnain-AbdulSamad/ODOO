@@ -1,0 +1,57 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  build-ios:
+    runs-on: macos-latest  # GitHub provides FREE macOS runners
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.38.9'
+        channel: 'stable'
+
+    - name: Install Flutter dependencies
+      run: |
+        cd odoo_mobile_launcher
+        flutter pub get
+
+    - name: Install CocoaPods dependencies
+      run: |
+        cd odoo_mobile_launcher/ios
+        pod install
+        cd ../..
+
+    - name: Build iOS app (without code signing)
+      run: |
+        cd odoo_mobile_launcher
+        flutter build ios --release --no-codesign
+
+    - name: Create IPA package
+      run: |
+        cd odoo_mobile_launcher/build/ios/iphoneos
+        mkdir Payload
+        cp -r Runner.app Payload/
+        zip -r odoo-launcher.ipa Payload
+        cd ../../../..
+
+    - name: Upload IPA as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ios-app-unsigned
+        path: odoo_mobile_launcher/build/ios/iphoneos/odoo-launcher.ipa
+        retention-days: 30
+
+    - name: Build summary
+      run: |
+        echo "✅ iOS build completed successfully!"
+        echo "📦 IPA file created: odoo-launcher.ipa"
+        echo "⬇️ Download from Actions artifacts"
