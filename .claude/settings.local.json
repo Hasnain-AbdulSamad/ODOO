@@ -30,7 +30,8 @@
       "Bash(git push:*)",
       "Bash(git config:*)",
       "Bash(git credential-manager:*)",
-      "Bash(cmdkey /list | grep github)"
+      "Bash(cmdkey /list | grep github)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
